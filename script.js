@@ -23,6 +23,43 @@ while (upper === false && lower === false && num === false && special === false)
   num = window.confirm("Would you like to include numbers?");
   special = window.confirm("Would you like to include special characters?");
 }
+var trueCount = 0;
+var selectedOp = [];
+  if (upper === true) {
+    var upperPos = Math.floor(Math.random() * upperCase.length); // gives a number between 0 and 26
+    var upperLet = upperCase[upperPos]; //upperCase [7] = "H"
+    password = password + upperLet;
+    trueCount = trueCount + 1;
+    selectedOp.push(upperCase);
+  }
+  if (lower === true){
+    var lowerPos = Math.floor(Math.random() * lowerCase.length);  
+    var lowerLet = lowerCase[lowerPos];                              
+    password = password + lowerLet;
+    trueCount = trueCount + 1;
+    selectedOp.push(lowerCase);
+  }
+  if (num === true){
+    var numPos = Math.floor(Math.random() * numbers.length); 
+    var numLet = numbers[numPos]; 
+    password = password + numLet;
+    trueCount = trueCount + 1;
+    selectedOp.push(numbers);
+  }
+  if (special === true){
+    var specialPos = Math.floor(Math.random() * specialChar.length); 
+    var specialLet = specialChar[specialPos]; 
+    password = password + specialLet;
+    trueCount = trueCount + 1;
+    selectedOp.push(specialChar);
+  } 
+  for (i = 0; i < char - trueCount; i++){
+    var selectedPos = Math.floor(Math.random() * selectedOp.length); //selectedPOs is a random number taken from the array called selectedOp length
+    var selectedArr = selectedOp[selectedPos]; // [upperCase,lowerCase,nums,specialChar][1] = lowerCase
+    var arrPos = Math.floor(Math.random() * selectedArr.length); // gives us index position for the selected array
+    var arrLet = selectedArr[arrPos];                               //gives us the individual character 
+    password = password + arrLet;
+  }
 
 
 
