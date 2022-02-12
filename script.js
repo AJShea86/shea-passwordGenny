@@ -60,26 +60,8 @@ var selectedOp = [];
     var arrLet = selectedArr[arrPos];                               //gives us the individual character 
     password = password + arrLet;
   }
-
-
-
-
-
-
-
-
-
-
-
-
-// Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
-
   passwordText.value = password;
-
 }
+generateBtn.addEventListener("click", writePassword);// Add event listener to generate button
 
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+
